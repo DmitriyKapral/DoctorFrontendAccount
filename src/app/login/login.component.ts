@@ -29,5 +29,4 @@ export class LoginComponent {
       this.invalidLogin = true;
     })
   }
- 
 }
