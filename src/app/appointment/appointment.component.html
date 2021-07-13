@@ -1,0 +1,39 @@
+<app-nav></app-nav>
+<h2>График приёма пациентов</h2>
+<fieldset>
+<div class="block">
+    
+    <label class="label">Выберите дату</label><br>
+    <input type="date" id="date" name="date" ngModel class="form-control" required [(ngModel)]="date" (ngModelChange)="onChangePatient($event)">
+</div>
+
+<div class="container" *ngIf="vision">
+    <label class="label">Вывод пациентов:</label><br>
+    <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450" >
+      <tr style="color:white;background-color:grey">
+         <td class="table_th">ФИО</td>
+         <td class="table_th">№ полиса</td>
+         <td class="table_th">email</td>
+         <td class="table_th">Контактный телефон</td>
+         <td class="table_th">Возвраст</td>
+         <td class="table_th">Время</td>
+      </tr>
+    </table>
+<tr>
+ <td>
+    <div style="width:1450px; height:275px; overflow:auto;">
+      <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450">
+       <tr *ngFor="let k of patients">
+           <td class="table_td"><a [routerLink]="['/patient/', k.id]" class="btn btn-sm btn-primary">{{k.surname}} {{k.name}} {{k.patronymic}}</a></td>
+           <td class="table_td">{{k.numberPolicy}}</td>
+           <td class="table_td">{{k.email}}</td>
+           <td class="table_td">{{k.numberPhone}}</td>
+           <td class="table_td">{{k.age}}</td>
+           <td class="table_td">{{k.time}}</td>
+       </tr>
+      </table>
+    </div>
+ </td>
+</tr>
+</div>
+</fieldset>

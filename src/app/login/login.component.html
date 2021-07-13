@@ -1,6 +1,6 @@
 <form class="form-sugnin" #loginForm="ngForm" (ngSubmit)="login(loginForm)">
-    <div class="container-fluid">
-      <h2 class="form-signin-heading">Email</h2>
+    <div class="container-fluid" style="text-align:center">
+      <h2 class="form-signin-heading">Вход в личный кабинет</h2>
       <div *ngIf="invalidLogin" class="alert alert-danger">Invalid username or password</div>
       <br>
       <label for="email" class="sr-only">Email</label>
@@ -9,6 +9,6 @@
       <label for="password" class="sr-only">Password</label>
       <input type="password" id="password" name="password" ngModel class="form-control" placeholder="Password" required>
       <br>
-      <button class="btn btn-lg btn-primary btn-block" type="submit">Submin</button>
+      <button class="btn btn-lg btn-primary btn-block" type="submit">Войти</button>
     </div>
   </form>

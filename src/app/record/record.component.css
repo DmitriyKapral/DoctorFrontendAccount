@@ -1,0 +1,25 @@
+html,
+.form-record{
+    left: 20%;
+    position: absolute;
+    font-size: 14pt;
+    top: 60px;
+    width: 1500px;
+}
+.block{
+    margin: 30px;
+}
+.block input{
+    width: 300px;
+}
+.newblock{
+    position: absolute;
+    left: 50%;
+    top: 10px;
+}
+.textarea{
+    resize: none;
+}
+.disabled{
+    height: 820px;
+}

@@ -1,0 +1,19 @@
+<nav>
+    <div class="n_layout">
+        <div class="n_nav_block">
+            <div class="n_nav">Навигация</div>
+        </div>
+        <div class="n_label_block" routerLink="/appointment" routerLinkActive="active">
+            <a class="n_label" >График приёма пациентов</a>
+        </div>
+        <div class="n_label_block" routerLink="/patient" routerLinkActive="active">
+            <a class="n_label" >Осмотр пациента</a>
+        </div>
+        <div class="n_label_block">
+            <br />
+            <form method="post">
+                <a class="n_label" (click)="logOut()">Выход из аккаунта</a>
+            </form>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,34 @@
+html,
+
+.form-sugnin{
+    width: 100%;
+  max-width: 330px;
+  padding: 270px;
+  margin: auto;
+}
+.container-fluid {
+    width: 330px;	height: 300px; /* Размеры */
+    outline: 2px solid #000; /* Чёрная рамка */
+    border: 3px solid #fff; /* Белая рамка */
+    border-radius: 10px; /* Радиус скругления */
+   }
+.form-sugnin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    margin: 10px;
+    margin-left: 30px;
+  }
+  .form-sugnin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    margin: 10px;
+
+  }
+  .btn{
+    margin: 60px;
+  }
+  .alert{
+      color: red;
+  }

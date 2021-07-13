@@ -1,0 +1,68 @@
+<app-nav></app-nav>
+<form class="form-patient" #searchForm="ngForm" (ngSubmit)="search(searchForm) ">
+    <div class="block">
+        <img src="{{patient?.photourl}}" width="200" height="200"><br>
+        <label class="label">Фамилия Имя Отчество</label><br>
+        <input type="fio" [ngModel]="patient?.name + ' ' + patient?.surname + ' ' + patient?.patronymic" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required>
+    </div>
+    <div class="block">
+        <label class="label">Номер полиса</label><br>
+        <input type="numberpolicy" [ngModel]="patient?.numberpolicy" id="numberpolicy" name="numberpolicy" ngModel class="form-control" placeholder="numberpolicy" required>
+    </div>
+    <div class="block">
+        <label class="label">Пол: </label>
+        <input type="gender" [ngModel]="patient?.gender" id="gender" name="gender" ngModel class="form-control" placeholder="gender" disabled>
+    </div>
+    <div class="block">
+        <label class="label">Возвраст: </label>
+        <input type="age" [ngModel]="patient?.age" id="age" name="age" ngModel class="form-control" placeholder="age" disabled>
+    </div>
+    <div class="block">
+        <label class="label">Серия и номер паспорта</label><br>
+        <input type="numberpassport" [ngModel]="patient?.numberpassport" id="numberpassport" name="numberpassport" ngModel class="form-control" placeholder="numberpassport" disabled>
+    </div>
+    <div class="block">
+        <label class="label">Адрес прописки</label><br>
+        <input type="residanceaddress" [ngModel]="patient?.residenceaddress" id="residanceaddress" name="residanceaddress" ngModel class="form-control" placeholder="residanceaddress" disabled>
+    </div>
+    <div class="block">
+        <label class="label">Адрес проживания</label><br>
+        <input type="placeofresidence" [ngModel]="patient?.placeofresidence" id="placeofresidence" name="placeofresidence" ngModel class="form-control" placeholder="placeofresidence" disabled>
+    </div>
+    <div class="block">
+        <label class="label">Телефон</label>
+        <label class="labelpost">Почта:</label><br>
+        <input type="phone" [ngModel]="patient?.phone" id="phone" name="phone" ngModel class="form-control" placeholder="phone" disabled>
+        <input type="email" [ngModel]="patient?.email" (ngModelChange)="patient.email = $event" id="email" name="email" ngModel class="form-control" placeholder="email" disabled>
+    </div>
+</form>
+
+<div class="container">
+             <table class="t1" cellspacing="0" cellpadding="1" border="1" width="900" >
+               <tr style="color:white;background-color:grey">
+                  <td class="table_th">Индетификатор<br>приёма</td>
+                  <td class="table_th">Название<br>заболевания</td>
+                  <td class="table_th">Врач</td>
+                  <td class="table_th">Дата регистрации</td>
+                  <td class="table_th">Тип</td>
+                  <td class="table_th"></td>
+               </tr>
+             </table>
+        <tr>
+          <td>
+             <div style="width:920px; height:500px; overflow:auto;">
+               <table class="t1" cellspacing="0" cellpadding="1" border="1" width="900">
+                <tr *ngFor="let k of cards">
+                    <td class="table_td">{{k.id}}</td>
+                    <td class="table_td">{{k.diagnose}}</td>
+                    <td class="table_td">{{k.nameDoctor}} {{k.surnamedoctor}} {{k.patronymicdoctor}}</td>
+                    <td class="table_td">{{k.date}}</td>
+                    <td class="table_td">{{k.type}}</td>
+                    <td class="table_td"><a [routerLink]="['record', k.id]" class="btn btn-sm btn-primary">Просмотреть</a></td>
+                </tr>
+               </table>
+             </div>
+          </td>
+        </tr>
+    <button class="button" [disabled]="!enable" [routerLink]="['record-add']">Добавить</button>
+</div>

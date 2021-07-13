@@ -1,0 +1,76 @@
+<app-nav></app-nav>
+<form class="form-record" #recordForm="ngForm" (ngSubmit)="Record(recordForm)">
+   
+    <fieldset class="disabled" >
+    <div class="block">
+        <label class="label">Фамилия Имя Отчество</label><br>
+        <input type="fio"  [ngModel]="card[0]?.fioPatient" [ngModel]="patient?.name + ' ' + patient?.surname + ' ' + patient?.patronymic" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required disabled>
+    </div>
+    <div class="block">
+        <label class="label">Дата и время приёма</label><br>
+        <input type="datetime" [ngModel]="card[0]?.dateTime" id="datetime" name="datetime" ngModel class="form-control" placeholder="01-01-2001" required [disabled]="disabled">
+    </div>
+    <div class="block">
+        <label class="label">ФИО лечающего врача</label><br>
+        <input type="fiodoctor" [ngModel]="card[0]?.fioDoctor" [ngModel]="doctor[0]?.fio" id="fiodoctor" name="fiodoctor" ngModel class="form-control" placeholder="fiodoctor" required disabled>
+    </div>
+    <div class="block">
+        <label class="label">Должность лечающего врача</label><br>
+        <input type="position" [ngModel]="card[0]?.positionDoctor" [ngModel]="doctor[0]?.position" id="position" name="position" ngModel class="form-control" placeholder="position" required disabled>
+    </div>
+    <div class="block">
+        <label class="label">Симптомы</label><br>
+        <input type="symptoms" [ngModel]="card[0]?.symptom"  id="symptoms" name="symptoms" ngModel class="form-control" placeholder="symptoms" required [disabled]="disabled">
+    </div>
+    <div class="block">
+        <label class="label">Тип заболевания</label><br>
+        <input type="type" [ngModel]="card[0]?.type" id="type" name="type" ngModel class="form-control" placeholder="type" list="types" required [disabled]="disabled">
+        <datalist id="types">
+            <option *ngFor="let k of types" value={{k.name}}>
+        </datalist>
+    </div>
+    <div class="block">
+        <label class="label">Диагноз</label><br>
+        <input type="diagnose" [ngModel]="card[0]?.diagnose"  id="diagnose" name="diagnose" ngModel class="form-control" placeholder="diagnose" list="diagnos" required multiple="multiple" [disabled]="disabled">
+        <datalist id="diagnos" >
+            <option *ngFor="let k of diagnoses" value={{k.name}}>
+        </datalist>
+    </div>
+    <div class="block">
+        <label class="label">Результаты анализов</label><br>
+        <input type="testresult" id="testresult" name="testresult" ngModel class="form-control" placeholder="testresult" required><br>
+        <a routerLink="test" class="btn btn-sm btn-primary">Вывести результат анализа</a>
+    </div>
+    <div class="newblock">
+        <div class="block">
+            <label class="label">Описание осмотра</label><br>
+            <textarea type="inspection" [ngModel]="card[0]?.inspection_description" rows="10" cols="65"  id="inspection" name="inspection" ngModel class="textarea" placeholder="inspection" required [disabled]="disabled"></textarea><br>
+        </div>
+        <div class="block">
+            <label class="label">Назначенные лекарственные средства</label><br>
+            <textarea type="medication" [ngModel]="card[0]?.textMedication" rows="10" cols="65" id="medication" name="medication" ngModel class="textarea" placeholder="medication" required [disabled]="disabled"></textarea><br>
+        </div>
+        <div>
+            <input type="checkbox" [(ngModel)]="checkTest" id="subscribe" name="subscribe" value="newsletter" [disabled]="disabled">
+            <label for="subscribe">Назначить анализы</label>
+        </div>
+        <div class="block">
+            <label class="label">Назначение сдачи анализов</label><br>
+            <input type="test" [disabled]="!checkTest" id="test" name="test" ngModel class="form-control" placeholder="test" required><br>
+        </div>
+        <div class="block">
+            <label class="label">Назначение даты сдачи анализов</label><br>
+            <input type="datetime-local" [disabled]="!checkTest" name="datetime-local" name="datetime-local" ngModel class="form-control" placeholder="datetime-local" required >
+        </div>
+        <div>
+            <input type="checkbox" id="newdatacheck" [(ngModel)]="checkData" name="newdatacheck" value="newsletter" [disabled]="disabled">
+            <label for="newdatacheck">Назначить новую дату приёма</label><br>
+        </div>
+        <div class="block">
+            <input type="datetime-local" id="datetimenew" name="datetimenew" ngModel class="form-control" placeholder="datetimenew" required [disabled]="!checkData">
+        </div>
+        <button class="btn" type="submit" [disabled]="disabled">Добавить</button>
+    </div>
+    
+</fieldset>
+</form>

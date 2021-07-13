@@ -1,0 +1,67 @@
+html,
+.form-patient{
+    left: 20%;
+    position: absolute;
+    font-size: 14pt;
+    top: 100px;
+}
+.block input[type="gender"]
+{
+    width: 10px;
+}
+.block input[type="age"]
+{
+    width: 20px;
+}
+.block input[type="placeofresidence"]
+{
+    width: 300px;
+}
+.block input[type="residanceaddress"]
+{
+    width: 300px;
+}
+.block input[type="numberpassport"]
+{
+    width: 80px;
+}
+.block input[type="phone"]
+{
+    width: 90px;
+}
+.block input[type="email"]
+{
+    width: 120px;
+    left: 90px;
+    position: relative;
+}
+.block {
+    width: 200%;
+    margin: 30px;
+}
+.labelpost {
+    left: 110px;
+    position: relative;
+}
+
+
+
+.container{
+    position: absolute;
+    top: 200px;
+    left: 40%;
+}
+
+.t1{
+    table-layout: fixed;
+}
+.button{
+    left: 800px;
+    position: absolute;
+}
+
+img{
+    background-image: url("no_avatar.png");
+    background-size: contain;
+    background-position-x: center;
+}
