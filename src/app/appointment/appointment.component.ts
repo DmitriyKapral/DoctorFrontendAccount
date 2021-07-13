@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DateAdapter } from '@angular/material/core';
 import { Patients } from '../model/patients';
 
 @Component({
@@ -12,11 +13,14 @@ export class AppointmentComponent implements OnInit {
   date!: string;
   vision: boolean = false;
   patients: Patients[] = [];
+  isDate: boolean = false;
 
 
-  constructor(private http: HttpClient, public datepipe: DatePipe) { }
+  constructor(private http: HttpClient, public datepipe: DatePipe, private _adapter: DateAdapter<any>) { }
+
 
   ngOnInit(): void {
+      this._adapter.setLocale('ru');
   }
   onChangePatient(value: any)
   {
@@ -25,11 +29,16 @@ export class AppointmentComponent implements OnInit {
     this.date = value;
     if(this.date)
     {
-      this.vision = true;
-      this.http.get("http://localhost:43053/api/home/GetPatients/" + this.date).subscribe((data: any) => this.patients = data);
+      this.http.get("http://localhost:43053/api/home/GetPatients/" + this.date).subscribe((data: any) => {this.patients = data; this.isDate=true; if(this.patients.length>0)
+      {
+        this.vision = true;
+      }
+      else
+      {
+        this.vision = false;
+      }});
+      
     }
-    else
-    this.vision = false;
   }
 
 }

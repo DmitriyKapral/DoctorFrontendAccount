@@ -23,3 +23,18 @@ html,
 .disabled{
     height: 820px;
 }
+mat-form-field{
+    width: 10px;
+    font-size: 14px;
+    left: 340px;
+    top: 344px;
+    position: absolute;
+}
+.block-check{
+    left: 25px;
+    position: relative;
+}
+button{
+    position: relative;
+    left: 450px;
+}

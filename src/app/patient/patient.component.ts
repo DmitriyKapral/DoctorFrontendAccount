@@ -23,13 +23,8 @@ export class PatientComponent implements OnInit {
   constructor(private http: HttpClient, private dataservice:DataService, activeRoute: ActivatedRoute, private router: Router) {this.id = Number.parseInt(activeRoute.snapshot.params["id"]);}
 
   ngOnInit(): void {
-    this.http.get("http://localhost:43053/api/home/GetHistory/" + this.id).subscribe((data: any ) => {this.cards = data;console.log(this.cards);for(let w in this.cards)
-    {
-      this.string = this.cards[w];
-      console.log(this.string);
-    };});
+    this.http.get("http://localhost:43053/api/home/GetHistory/" + this.id).subscribe((data: any ) => {this.cards = data;console.log(this.cards);});
     this.http.get("http://localhost:43053/api/home/" + this.id).subscribe((data:any) => {this.patient = data; this.enable=true});
-    const filterargs = {diagnose: 'ОРВИ'};
   }
   search(form: NgForm)
   {
@@ -37,8 +32,15 @@ export class PatientComponent implements OnInit {
       'fio': form.value.fio,
       'numberpolicy': form.value.numberpolicy
     }
-    this.http.post("http://localhost:43053/api/home/SearchPatient", credentials).subscribe((data: any) => {this.patient = data; this.router.navigateByUrl("/patient/" + this.patient.id); this.enable= true;});
 
+    this.http.post("http://localhost:43053/api/home/SearchPatient", credentials).subscribe((data: any) => {this.patient = data; this.getTable();});
+    
+
+  }
+  getTable(){
+    this.http.get("http://localhost:43053/api/home/GetHistory/" + this.patient.id).subscribe((data: any) => {this.cards = data;console.log(this.cards);this.enable= true;console.log(this.patient);});
+
+    this.router.navigateByUrl("patient/" + this.patient.id);
   }
 
 }

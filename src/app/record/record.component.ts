@@ -1,10 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Card } from '../model/card';
 import { Doctor } from '../model/doctor';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DataService } from '../data.service';
-import { NgForm } from '@angular/forms';
+import { FormControl, NgForm } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../model/patient';
 
@@ -24,8 +24,13 @@ export class RecordComponent implements OnInit {
   checkData: boolean = false;
   doctor: Doctor[] = [];
   patient!: Patient;
+  toppings = new FormControl();
+  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
 
-  constructor(private http: HttpClient, private router: Router, activeRoute: ActivatedRoute, private dataservice: DataService, private jwtHelper: JwtHelperService) {this.idrecord = Number.parseInt(activeRoute.snapshot.params["idrecord"]); this.idPatient = Number.parseInt(activeRoute.snapshot.params["id"]);}
+
+
+  constructor(private http: HttpClient, private router: Router, activeRoute: ActivatedRoute, private dataservice: DataService, private jwtHelper: JwtHelperService) {this.idrecord = Number.parseInt(activeRoute.snapshot.params["idrecord"]); this.idPatient = Number.parseInt(activeRoute.snapshot.params["id"]);
+}
 
   ngOnInit(): void {
     const token: string|null = localStorage.getItem("jwt");
@@ -65,5 +70,6 @@ export class RecordComponent implements OnInit {
     this.http.post("http://localhost:43053/api/home/AddAppointment", appointment).subscribe()
     this.router.navigateByUrl("patient/" + this.idPatient);
   }
+
 
 }

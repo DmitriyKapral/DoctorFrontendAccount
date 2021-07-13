@@ -65,3 +65,8 @@ img{
     background-size: contain;
     background-position-x: center;
 }
+.search{
+    position: absolute;
+    top: 210px;
+    left: 250px;
+}

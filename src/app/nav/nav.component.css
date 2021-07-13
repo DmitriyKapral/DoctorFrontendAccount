@@ -49,3 +49,16 @@ body {
     background-color: rgb(192, 189, 189);
     cursor: pointer;
 }
+
+.icon {
+    position: relative;
+    top: 20px;
+    left: 10px;
+  }
+  
+.icon_exit
+{
+    position: relative;
+    top: 7px;
+    left: 10px;
+}

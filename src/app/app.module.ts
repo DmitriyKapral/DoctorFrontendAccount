@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
+import {MatIconModule} from '@angular/material/icon'
+
 import { DataService } from './data.service';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -58,6 +60,7 @@ export function tokenGetter()
     DemoMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    MatIconModule
   ],
   
   providers: [DataService, DatePipe],

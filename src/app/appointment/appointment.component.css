@@ -22,5 +22,13 @@ fieldset{
     top: 50px;
 }
 .demo-inline-calendar-card {
-    width: 300px;
+    width: 460px;
+    height: 460px;
   }
+.alert{
+    top: 530px;
+    left: 500px;
+    position: absolute;
+    font-size: 50px;
+    font-weight:bold
+}

@@ -1,9 +1,10 @@
 <app-nav></app-nav>
 <form class="form-patient" #searchForm="ngForm" (ngSubmit)="search(searchForm) ">
     <div class="block">
-        <img src="{{patient?.photourl}}" width="200" height="200"><br>
+        <img src="{{patient?.photourl}}" width="200" height="200">
+        <button class="search" type="submit">Поиск</button><br>
         <label class="label">Фамилия Имя Отчество</label><br>
-        <input type="fio" [ngModel]="patient?.name + ' ' + patient?.surname + ' ' + patient?.patronymic" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required>
+        <input type="fio" [ngModel]="patient?.fullName" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required>
     </div>
     <div class="block">
         <label class="label">Номер полиса</label><br>
