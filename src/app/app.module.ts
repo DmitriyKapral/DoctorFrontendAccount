@@ -14,6 +14,18 @@ import { PatientComponent } from './patient/patient.component';
 import { NavComponent } from './nav/nav.component';
 import { RecordComponent } from './record/record.component';
 import { AppointmentComponent } from './appointment/appointment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatNativeDateModule} from '@angular/material/core';
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+
+import { enableProdMode } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { DemoMaterialModule } from './material-module';
+import { DatePipe } from '@angular/common';
+
+
 
 export function tokenGetter()
 {
@@ -41,10 +53,15 @@ export function tokenGetter()
         allowedDomains: ["localhost:43053"],
         disallowedRoutes: []
       }
-    })
+    }),
+    BrowserAnimationsModule,
+    DemoMaterialModule,
+    MatNativeDateModule,
+    ReactiveFormsModule,
   ],
   
-  providers: [DataService],
-  bootstrap: [AppComponent]
+  providers: [DataService, DatePipe],
+  bootstrap: [AppComponent, AppointmentComponent],
+  entryComponents: [AppointmentComponent]
 })
 export class AppModule { }

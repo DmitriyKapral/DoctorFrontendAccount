@@ -1,11 +1,12 @@
 <app-nav></app-nav>
 <h2>График приёма пациентов</h2>
 <fieldset>
-<div class="block">
-    
-    <label class="label">Выберите дату</label><br>
-    <input type="date" id="date" name="date" ngModel class="form-control" required [(ngModel)]="date" (ngModelChange)="onChangePatient($event)">
-</div>
+
+
+<mat-card class="demo-inline-calendar-card">
+  <mat-calendar (selectedChange)="onChangePatient($event)"></mat-calendar>
+</mat-card>
+<p>Выбранная дата: {{date}}</p>
 
 <div class="container" *ngIf="vision">
     <label class="label">Вывод пациентов:</label><br>
