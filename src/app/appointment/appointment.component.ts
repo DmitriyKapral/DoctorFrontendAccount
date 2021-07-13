@@ -1,3 +1,4 @@
+import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Patients } from '../model/patients';
@@ -13,12 +14,14 @@ export class AppointmentComponent implements OnInit {
   patients: Patients[] = [];
 
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, public datepipe: DatePipe) { }
 
   ngOnInit(): void {
   }
   onChangePatient(value: any)
   {
+    value = this.datepipe.transform(value, 'yyyy-MM-dd')
+    console.log(value);
     this.date = value;
     if(this.date)
     {
