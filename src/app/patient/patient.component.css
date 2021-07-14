@@ -70,3 +70,13 @@ img{
     top: 210px;
     left: 250px;
 }
+.searchString{
+    position: absolute;
+    top: -40px;
+    left: 720px;
+    border-radius: 20px;
+}
+.searchString:focus{
+    outline:none;
+    border-color: blue;
+}

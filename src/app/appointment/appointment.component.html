@@ -21,7 +21,7 @@
     </table>
 <tr>
  <td>
-    <div style="width:1450px; height:275px; overflow:auto;">
+    <div style="width:1450px; height:255px; overflow:auto;">
       <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450">
        <tr *ngFor="let k of patients">
            <td class="table_td"><a [routerLink]="['/patient/', k.id]" class="btn btn-sm btn-primary">{{k.surname}} {{k.name}} {{k.patronymic}}</a></td>

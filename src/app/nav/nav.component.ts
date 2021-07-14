@@ -13,8 +13,9 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
   logOut() {
-    localStorage.removeItem("jwt")
     this.router.navigate([""])
+    localStorage.removeItem("jwt")
+    
   }
 
 }

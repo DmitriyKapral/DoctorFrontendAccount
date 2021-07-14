@@ -7,6 +7,8 @@ import { DataService } from '../data.service';
 import { FormControl, NgForm } from '@angular/forms';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../model/patient';
+import { Test_result } from '../model/test_result';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-record',
@@ -26,6 +28,8 @@ export class RecordComponent implements OnInit {
   patient!: Patient;
   toppings = new FormControl();
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
+  test_result: Test_result[] = [];
+  urlresult!: string;
 
 
 
@@ -37,6 +41,7 @@ export class RecordComponent implements OnInit {
     console.log(token);
     this.http.get("http://localhost:43053/api/home/Types").subscribe((data:any) => this.types = data);
     this.http.get("http://localhost:43053/api/home/Diagnose").subscribe((data:any) => this.diagnoses = data);
+    this.http.get("http://localhost:43053/api/home/testResult/" + this.idrecord).subscribe((data:any) => {this.test_result = data; console.log(this.test_result)});
     if(this.idrecord)
     this.http.get("http://localhost:43053/api/home/GetRecord/" + this.idrecord).subscribe((data: any) => this.card = data);
     else
@@ -62,13 +67,29 @@ export class RecordComponent implements OnInit {
     }
     this.http.post("http://localhost:43053/api/home/Post", credentials)
     .subscribe()
+    
+    const test = {
+      'name': form.value.test,
+      'datetime': form.value.datetimetest,
+      'idpatient': this.idPatient
+    }
+    if(this.checkTest)
+    this.http.post("http://localhost:43053/api/home/AddTest", test).subscribe()
+    
     const appointment = {
       'datetime': form.value.datetimenew,
       'idpatient': this.idPatient
     }
+    console.log(appointment);
     if(this.checkData)
     this.http.post("http://localhost:43053/api/home/AddAppointment", appointment).subscribe()
+    
     this.router.navigateByUrl("patient/" + this.idPatient);
+  }
+  onChangeTest(value: any){
+    this.urlresult = value;
+    console.log(this.urlresult);
+
   }
 
 

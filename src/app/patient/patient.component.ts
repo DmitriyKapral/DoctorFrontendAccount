@@ -16,6 +16,7 @@ export class PatientComponent implements OnInit {
   i: string | undefined;
   string: any;
   enable: boolean = false;
+  public searchString!: string;
 
   patient!: Patient;
   cards: Cards[] = [];

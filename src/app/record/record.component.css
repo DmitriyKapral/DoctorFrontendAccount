@@ -38,3 +38,6 @@ button{
     position: relative;
     left: 450px;
 }
+select{
+    width: 300px;
+}
