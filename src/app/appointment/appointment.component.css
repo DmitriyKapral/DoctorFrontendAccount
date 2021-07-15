@@ -13,6 +13,7 @@ h2{
 .container{
     position: absolute;
     top: 540px;
+    font-family:'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
 }
 fieldset{
     height: 825px;

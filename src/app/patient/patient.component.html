@@ -2,39 +2,60 @@
 <form class="form-patient" #searchForm="ngForm" (ngSubmit)="search(searchForm) ">
     <div class="block">
         <img src="{{patient?.photourl}}" width="200" height="200">
-        <button class="search" type="submit">Поиск</button><br>
+        <button mat-raised-button class="search" type="submit">Поиск</button><br>
         <label class="label">Фамилия Имя Отчество</label><br>
-        <input type="fio" [ngModel]="patient?.fullName" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>ФИО</mat-label>
+        <input type="fio" matInput [ngModel]="patient?.fullName" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Номер полиса</label><br>
-        <input type="numberpolicy" [ngModel]="patient?.numberpolicy" id="numberpolicy" name="numberpolicy" ngModel class="form-control" placeholder="numberpolicy" required>
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Номер полиса</mat-label>
+        <input type="numberpolicy" matInput [ngModel]="patient?.numberpolicy" id="numberpolicy" name="numberpolicy" ngModel class="form-control" placeholder="numberpolicy" required>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Пол: </label>
-        <input type="gender" [ngModel]="patient?.gender" id="gender" name="gender" ngModel class="form-control" placeholder="gender" disabled>
+        <mat-form-field class="example-full-widthG" appearance="legacy">
+        <input type="gender" matInput [ngModel]="patient?.gender" id="gender" name="gender" ngModel class="form-control" readonly>
+    </mat-form-field>
     </div>
-    <div class="block">
+    <div class="blockAge">
         <label class="label">Возвраст: </label>
-        <input type="age" [ngModel]="patient?.age" id="age" name="age" ngModel class="form-control" placeholder="age" disabled>
+        <mat-form-field class="example-full-widthE" appearance="legacy">
+            <mat-label></mat-label>
+        <input type="age" matInput [ngModel]="patient?.age" id="age" name="age" ngModel class="form-control" placeholder="age" readonly>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Серия и номер паспорта</label><br>
-        <input type="numberpassport" [ngModel]="patient?.numberpassport" id="numberpassport" name="numberpassport" ngModel class="form-control" placeholder="numberpassport" disabled>
+        <mat-form-field class="example-full-widthP" appearance="legacy">
+        <input type="numberpassport" matInput [ngModel]="patient?.numberpassport" id="numberpassport" name="numberpassport" ngModel class="form-control" readonly>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Адрес прописки</label><br>
-        <input type="residanceaddress" [ngModel]="patient?.residenceaddress" id="residanceaddress" name="residanceaddress" ngModel class="form-control" placeholder="residanceaddress" disabled>
+        <mat-form-field class="example-full-width" appearance="legacy">
+        <input type="residanceaddress" matInput [ngModel]="patient?.residenceaddress" id="residanceaddress" name="residanceaddress" ngModel class="form-control" readonly>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Адрес проживания</label><br>
-        <input type="placeofresidence" [ngModel]="patient?.placeofresidence" id="placeofresidence" name="placeofresidence" ngModel class="form-control" placeholder="placeofresidence" disabled>
+        <mat-form-field class="example-full-width" appearance="legacy">
+        <input type="placeofresidence" matInput [ngModel]="patient?.placeofresidence" id="placeofresidence" name="placeofresidence" ngModel class="form-control" readonly>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Телефон</label>
         <label class="labelpost">Почта:</label><br>
-        <input type="phone" [ngModel]="patient?.phone" id="phone" name="phone" ngModel class="form-control" placeholder="phone" disabled>
-        <input type="email" [ngModel]="patient?.email" (ngModelChange)="patient.email = $event" id="email" name="email" ngModel class="form-control" placeholder="email" disabled>
+        <mat-form-field class="example-full-widthPT" appearance="legacy">
+        <input type="phone" matInput [ngModel]="patient?.phone" id="phone" name="phone" ngModel class="form-control"  readonly>
+        </mat-form-field>
+        <mat-form-field class="example-full-widthPTE" appearance="legacy">
+        <input type="email" matInput [ngModel]="patient?.email" (ngModelChange)="patient.email = $event" id="email" name="email" ngModel class="form-control"  readonly>
+    </mat-form-field>
     </div>
 </form>
 
@@ -68,5 +89,5 @@
              </div>
           </td>
         </tr>
-    <button class="button" [disabled]="!enable" [routerLink]="['record-add']">Добавить</button>
+    <button mat-raised-button color="primary" class="button" [disabled]="!enable" [routerLink]="['record-add']">Добавить</button>
 </div>

@@ -24,6 +24,7 @@ export class PatientComponent implements OnInit {
   constructor(private http: HttpClient, private dataservice:DataService, activeRoute: ActivatedRoute, private router: Router) {this.id = Number.parseInt(activeRoute.snapshot.params["id"]);}
 
   ngOnInit(): void {
+    
     this.http.get("http://localhost:43053/api/home/GetHistory/" + this.id).subscribe((data: any ) => {this.cards = data;console.log(this.cards);});
     this.http.get("http://localhost:43053/api/home/" + this.id).subscribe((data:any) => {this.patient = data; this.enable=true});
   }

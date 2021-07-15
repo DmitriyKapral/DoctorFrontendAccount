@@ -30,6 +30,8 @@ export class RecordComponent implements OnInit {
   toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   test_result: Test_result[] = [];
   urlresult!: string;
+  ssilka: boolean = false;
+  
 
 
 
@@ -43,10 +45,15 @@ export class RecordComponent implements OnInit {
     this.http.get("http://localhost:43053/api/home/Diagnose").subscribe((data:any) => this.diagnoses = data);
     this.http.get("http://localhost:43053/api/home/testResult/" + this.idrecord).subscribe((data:any) => {this.test_result = data; console.log(this.test_result)});
     if(this.idrecord)
+    {
+      this.ssilka = true;
     this.http.get("http://localhost:43053/api/home/GetRecord/" + this.idrecord).subscribe((data: any) => this.card = data);
+    }
+
     else
     {
     this.disabled = false;
+    this.ssilka = false;
     this.http.get("http://localhost:43053/api/home/Doctor/").subscribe((data: any) => this.doctor = data);
     this.http.get("http://localhost:43053/api/home/" + this.idPatient).subscribe((data:any) => {this.patient = data;console.log(this.patient);});
     }
@@ -83,7 +90,8 @@ export class RecordComponent implements OnInit {
     console.log(appointment);
     if(this.checkData)
     this.http.post("http://localhost:43053/api/home/AddAppointment", appointment).subscribe()
-    
+    setTimeout(function(){
+    }, 1000)
     this.router.navigateByUrl("patient/" + this.idPatient);
   }
   onChangeTest(value: any){

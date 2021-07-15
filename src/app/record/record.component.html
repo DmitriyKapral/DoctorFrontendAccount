@@ -3,83 +3,108 @@
     <fieldset class="disabled" >
     <div class="block">
         <label class="label">Фамилия Имя Отчество</label><br>
-        <input type="fio"  [ngModel]="card[0]?.fioPatient" [ngModel]="patient?.name + ' ' + patient?.surname + ' ' + patient?.patronymic" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required disabled>
+        <mat-form-field class="example-full-width" appearance="outline">
+
+            <input type="fio" matInput [ngModel]="card[0]?.fioPatient" [ngModel]="patient?.surname + ' ' + patient?.name + ' ' + patient?.patronymic" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required readonly [disabled]="disabled">
+        </mat-form-field>
+        
     </div>
     <div class="block">
         <label class="label">Дата и время приёма</label><br>
-        <input type="datetime" [ngModel]="card[0]?.dateTime" id="datetime" name="datetime" ngModel class="form-control" placeholder="01-01-2001" required [disabled]="disabled">
+        <mat-form-field class="example-full-width" appearance="outline">
+        <input type="datetime" matInput [ngModel]="card[0]?.dateTime" id="datetime" name="datetime" ngModel class="form-control" placeholder="01-01-2001" required [disabled]="disabled">
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">ФИО лечающего врача</label><br>
-        <input type="fiodoctor" [ngModel]="card[0]?.fioDoctor" [ngModel]="doctor[0]?.fio" id="fiodoctor" name="fiodoctor" ngModel class="form-control" placeholder="fiodoctor" required disabled>
+        <mat-form-field class="example-full-width" appearance="outline">
+        <input type="fiodoctor" matInput [ngModel]="card[0]?.fioDoctor" [ngModel]="doctor[0]?.fio" id="fiodoctor" name="fiodoctor" ngModel class="form-control" placeholder="fiodoctor" required readonly [disabled]="disabled">
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Должность лечающего врача</label><br>
-        <input type="position" [ngModel]="card[0]?.positionDoctor" [ngModel]="doctor[0]?.position" id="position" name="position" ngModel class="form-control" placeholder="position" required disabled>
+        <mat-form-field class="example-full-width" appearance="outline">
+        <input type="position" matInput [ngModel]="card[0]?.positionDoctor" [ngModel]="doctor[0]?.position" id="position" name="position" ngModel class="form-control" placeholder="position" required readonly [disabled]="disabled">
+        </mat-form-field>
     </div>
     <div class="block" >
         <label class="label">Симптомы</label><br>
-        <mat-form-field >
-            <mat-select [formControl]="toppings" multiple [disabled]="disabled" >
-                
-              <mat-option  *ngFor="let topping of toppingList" [value]="topping">{{topping}}</mat-option>
-            </mat-select>
-          </mat-form-field>
-          <input type="symptoms" [ngModel]="card[0]?.symptom"  id="symptoms" name="symptoms" ngModel class="form-control" autocomplete="off" placeholder="symptoms" required [disabled]="disabled" value="{{toppings.value? toppings.value: ''}}">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <input type="symptoms" matInput [ngModel]="card[0]?.symptom"  id="symptoms" name="symptoms" ngModel class="form-control" autocomplete="off" placeholder="symptoms" required [disabled]="disabled" value="{{toppings.value? toppings.value: ''}}">
+        </mat-form-field>
     </div>
 
     
     <div class="block">
         <label class="label">Тип заболевания</label><br>
-        <input type="type" [ngModel]="card[0]?.type" id="type" name="type" ngModel class="form-control" placeholder="type" list="types" required [disabled]="disabled" >
+        <mat-form-field class="example-full-width" appearance="outline">
+        <input type="type" matInput [ngModel]="card[0]?.type" id="type" name="type" ngModel class="form-control" placeholder="type" list="types" required [disabled]="disabled" >
         <datalist id="types">
             <option *ngFor="let k of types" value={{k.name}}>
         </datalist>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Диагноз</label><br>
-        <input type="diagnose" multiple [ngModel]="card[0]?.diagnose"  id="diagnose" name="diagnose" ngModel class="form-control" placeholder="diagnose" list="diagnos" required multiple [disabled]="disabled">
+        <mat-form-field class="example-full-width" appearance="outline">
+        <input type="diagnose" matInput multiple [ngModel]="card[0]?.diagnose"  id="diagnose" name="diagnose" ngModel class="form-control" placeholder="diagnose" list="diagnos" required multiple [disabled]="disabled">
         <datalist id="diagnos" >
-            <option *ngFor="let k of diagnoses" value={{k.name}}@mail.ru>
+            <option *ngFor="let k of diagnoses" value={{k.name}}>
         </datalist>
+    </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Результаты анализов</label><br>
-        <select name="testresult" ngModel="idtest" (ngModelChange)="onChangeTest($event)"  id="testresult" name="testresult" [disabled]="!disabled">
-            <option *ngFor="let i of test_result; let j = index" value={{i.urlresult}}>{{i.name}}</option>
-          </select><br>
-        <a href="{{urlresult}}" class="btn btn-sm btn-primary">Вывести результат анализа</a>
+        <mat-form-field class="example-full-width" appearance="outline">
+        <mat-select name="testresult" ngModel="idtest" (ngModelChange)="onChangeTest($event)"  id="testresult" name="testresult" [disabled]="!disabled">
+            <mat-option *ngFor="let i of test_result"  value={{i.urlresult}}>{{i.name}}</mat-option>
+          </mat-select>
+        </mat-form-field><br>
+        <a href="{{urlresult}}" class="btn btn-sm btn-primary" [hidden]="!ssilka">Вывести результат анализа</a>
     </div>
     <div class="newblock">
         <div class="block">
             <label class="label">Описание осмотра</label><br>
-            <textarea type="inspection" [ngModel]="card[0]?.inspection_description" rows="10" cols="65"  id="inspection" name="inspection" ngModel class="textarea" placeholder="inspection" required [disabled]="disabled"></textarea><br>
+            <mat-form-field class="example-full-widthnew" appearance="outline">
+            
+            <textarea type="inspection" matInput [ngModel]="card[0]?.inspection_description" rows="10" cols="65"  id="inspection" name="inspection" ngModel class="textarea" placeholder="inspection" required [disabled]="disabled"></textarea><br>
+            </mat-form-field>
         </div>
         <div class="block">
             <label class="label">Назначенные лекарственные средства</label><br>
-            <textarea type="medication" [ngModel]="card[0]?.textMedication" rows="10" cols="65" id="medication" name="medication" ngModel class="textarea" placeholder="medication" required [disabled]="disabled"></textarea><br>
+            <mat-form-field class="example-full-widthnew" appearance="outline">
+            <textarea type="medication" matInput [ngModel]="card[0]?.textMedication" rows="10" cols="65" id="medication" name="medication" ngModel class="textarea" placeholder="medication" required [disabled]="disabled"></textarea><br>
+            </mat-form-field>
         </div>
         <div class="block-check">
-            <input type="checkbox" [(ngModel)]="checkTest" id="subscribe" name="subscribe" value="newsletter" [disabled]="disabled">
-            <label for="subscribe">Назначить анализы</label>
+            <mat-checkbox class="example-margin" color="primary" [(ngModel)]="checkTest" id="subscribe" name="subscribe" value="newsletter" [disabled]="disabled"></mat-checkbox>
+            <label for="newdatacheck">Назначить анализы</label><br>
+            
         </div>
         <div class="block">
-            <label class="label">Назначение сдачи анализов</label><br>
-            <input type="test" [disabled]="!checkTest" id="test" name="test" ngModel class="form-control" placeholder="test" required><br>
+            <mat-form-field class="example-full-width" appearance="outline">
+                <mat-label>Название анализа</mat-label>
+                <input type="test" matInput [disabled]="!checkTest" id="test" name="test" ngModel class="form-control" required><br>
+        </mat-form-field>
         </div>
         <div class="block">
             <label class="label">Назначение даты сдачи анализов</label><br>
-            <input type="datetime-local" [disabled]="!checkTest" id="datetimetest" name="datetimetest" ngModel class="form-control" placeholder="datetimetest" required >
+            <mat-form-field class="example-full-width" appearance="outline">
+            <input type="datetime-local" matInput [disabled]="!checkTest" id="datetimetest" name="datetimetest" ngModel class="form-control" placeholder="datetimetest" required >
+        </mat-form-field>
         </div>
         <div class="block-check">
-            <input type="checkbox" id="newdatacheck" [(ngModel)]="checkData" name="newdatacheck" value="newsletter" [disabled]="disabled">
-            <label for="newdatacheck">Назначить новую дату приёма</label><br>
+            <mat-checkbox id="newdatacheck" color="primary" class="example-margin" [(ngModel)]="checkData" name="newdatacheck" value="newsletter" [disabled]="disabled"></mat-checkbox>
+            <label for="subscribe">Назначить новую дату приёма</label>
         </div>
         <div class="block">
-            <input type="datetime-local" id="datetimenew" name="datetimenew" ngModel class="form-control" placeholder="datetimenew" required [disabled]="!checkData">
+            <mat-form-field class="example-full-width" appearance="outline">
+            <input type="datetime-local" matInput  id="datetimenew" name="datetimenew" ngModel class="form-control" placeholder="datetimenew" required [disabled]="!checkData">
+        </mat-form-field>
         </div>
-        <button class="btn" type="submit" [disabled]="disabled">Добавить</button>
+        <button mat-raised-button color="primary" class="btn" type="submit" [disabled]="disabled">Добавить</button>
     </div>
+    
     
 </fieldset>
 </form>

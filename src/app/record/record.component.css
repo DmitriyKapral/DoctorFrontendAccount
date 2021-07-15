@@ -7,7 +7,9 @@ html,
     width: 1500px;
 }
 .block{
-    margin: 30px;
+    margin: 1px;
+    left: 20px;
+    position: relative;
 }
 .block input{
     width: 300px;
@@ -36,8 +38,28 @@ mat-form-field{
 }
 button{
     position: relative;
-    left: 450px;
+    left: 500px;
+    top: -20px;
 }
 select{
     width: 300px;
 }
+
+.example-full-width {
+    width: 300px;
+    position: relative;
+    left: 0px;
+    top: 0%;
+  }
+  .example-full-widthnew {
+    width: 600px;
+    position: relative;
+    left: 0px;
+    top: 0%;
+  }
+  .example-margin {
+    margin: 0 12px;
+    left: -15px;
+    position: relative;
+  }
+  

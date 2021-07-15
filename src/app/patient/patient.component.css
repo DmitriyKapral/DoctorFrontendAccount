@@ -2,12 +2,12 @@ html,
 .form-patient{
     left: 20%;
     position: absolute;
-    font-size: 14pt;
-    top: 100px;
+    top: 30px;
+    font-size: 12pt;
 }
 .block input[type="gender"]
 {
-    width: 10px;
+    width: 20px;
 }
 .block input[type="age"]
 {
@@ -21,23 +21,9 @@ html,
 {
     width: 300px;
 }
-.block input[type="numberpassport"]
-{
-    width: 80px;
-}
-.block input[type="phone"]
-{
-    width: 90px;
-}
-.block input[type="email"]
-{
-    width: 120px;
-    left: 90px;
-    position: relative;
-}
+
 .block {
     width: 200%;
-    margin: 30px;
 }
 .labelpost {
     left: 110px;
@@ -50,6 +36,8 @@ html,
     position: absolute;
     top: 200px;
     left: 40%;
+    font-family:'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
+
 }
 
 .t1{
@@ -67,16 +55,58 @@ img{
 }
 .search{
     position: absolute;
-    top: 210px;
+    top: 170px;
     left: 250px;
 }
 .searchString{
     position: absolute;
     top: -40px;
-    left: 720px;
-    border-radius: 20px;
+    left: 670px;
+    border-radius: 10px;
+    font-size: 17px;
 }
 .searchString:focus{
     outline:none;
     border-color: blue;
 }
+
+.example-full-width {
+    width: 300px;
+    position: relative;
+    left: 0px;
+    top: 0%;
+  }
+  .example-full-widthG
+  {
+      width: 16px;
+      position: relative;
+  }
+  .example-full-widthP
+  {
+      width: 120px;
+      position: relative;
+  }
+  .example-full-widthPT
+  {
+      width: 150px;
+      position: relative;
+  }
+  .example-full-widthPTE
+  {
+      left: 15px;
+      position: relative;
+      width: 200px;
+  }
+  .example-full-widthE
+  {
+      width: 40px;
+      position: relative;
+      text-align: center;
+  }
+
+
+  .blockAge{
+      position: absolute;
+      left: 150px;
+      top: 418px;
+  }
