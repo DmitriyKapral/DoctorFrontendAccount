@@ -2,7 +2,7 @@ html,
 .form-patient{
     left: 20%;
     position: absolute;
-    top: 30px;
+    top: 80px;
     font-size: 12pt;
 }
 .block input[type="gender"]

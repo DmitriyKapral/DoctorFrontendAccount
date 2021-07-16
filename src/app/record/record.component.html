@@ -12,7 +12,8 @@
     <div class="block">
         <label class="label">Дата и время приёма</label><br>
         <mat-form-field class="example-full-width" appearance="outline">
-        <input type="datetime" matInput [ngModel]="card[0]?.dateTime" id="datetime" name="datetime" ngModel class="form-control" placeholder="01-01-2001" required [disabled]="disabled">
+            <input type="datetime-local" matInput [ngModel]="card[0]?.dateTime"  id="datetime" name="datetime" ngModel class="form-control" placeholder="datetime" required [disabled]="disabled">
+        
     </mat-form-field>
     </div>
     <div class="block">
@@ -30,9 +31,22 @@
     <div class="block" >
         <label class="label">Симптомы</label><br>
         <mat-form-field class="example-full-width" appearance="outline">
-            <input type="symptoms" matInput [ngModel]="card[0]?.symptom"  id="symptoms" name="symptoms" ngModel class="form-control" autocomplete="off" placeholder="symptoms" required [disabled]="disabled" value="{{toppings.value? toppings.value: ''}}">
+            <mat-label>Симптомы</mat-label>
+            <mat-select [formControl]="toppings" required multiple (ngModelChange)="onChangeText($event)">
+              <mat-option *ngFor="let topping of symptoms" [disabled]="disabled" [value]="topping.name">{{topping.name}}</mat-option>
+            </mat-select>
+          </mat-form-field>
+    </div>
+    <div class="blockCheck">
+        <mat-checkbox id="symptomcheck" color="primary" class="example-margin" [(ngModel)]="checksymptom" name="symptomcheck" value="newsletter" [disabled]="disabled"></mat-checkbox>
+        <label for="subscribe">Другие симптомы</label>
+    </div>
+    <div class="block">
+        <mat-form-field class="example-full-width" appearance="outline">
+            <input type="symptom" matInput  id="symptom" name="symptom" ngModel class="form-control" placeholder="symptom" required [disabled]="!checksymptom">
         </mat-form-field>
     </div>
+    
 
     
     <div class="block">

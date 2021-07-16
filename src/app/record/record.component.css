@@ -1,9 +1,9 @@
 html,
 .form-record{
-    left: 20%;
+    left: 370px;
     position: absolute;
     font-size: 14pt;
-    top: 60px;
+    top: 13px;
     width: 1500px;
 }
 .block{
@@ -16,30 +16,32 @@ html,
 }
 .newblock{
     position: absolute;
-    left: 50%;
-    top: 10px;
+    left: 700px;
+    top: 13px;
 }
 .textarea{
     resize: none;
+    height: 170px;
 }
 .disabled{
-    height: 820px;
+    height: 920px;
 }
 mat-form-field{
-    width: 10px;
+    
     font-size: 14px;
-    left: 340px;
-    top: 344px;
-    position: absolute;
 }
 .block-check{
+    left: 25px;
+    position: relative;
+}
+.blockCheck{
     left: 25px;
     position: relative;
 }
 button{
     position: relative;
     left: 500px;
-    top: -20px;
+    top: 40px;
 }
 select{
     width: 300px;
