@@ -9,6 +9,8 @@ import { JwtHelperService } from '@auth0/angular-jwt';
 import { Patient } from '../model/patient';
 import { Test_result } from '../model/test_result';
 import { data } from 'jquery';
+import { Symptoms } from '../model/symptoms';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-record',
@@ -27,10 +29,16 @@ export class RecordComponent implements OnInit {
   doctor: Doctor[] = [];
   patient!: Patient;
   toppings = new FormControl();
-  toppingList: string[] = ['Extra cheese', 'Mushroom', 'Onion', 'Pepperoni', 'Sausage', 'Tomato'];
   test_result: Test_result[] = [];
   urlresult!: string;
   ssilka: boolean = false;
+  checksymptom: boolean = false;
+  symptoms: Symptoms[] = [];
+  string!: any;
+  a!: string;
+  symptom: string[] = [];
+  selectedSymptoms: string = "";
+  recordSymptom: any;
   
 
 
@@ -39,17 +47,17 @@ export class RecordComponent implements OnInit {
 }
 
   ngOnInit(): void {
-    const token: string|null = localStorage.getItem("jwt");
-    console.log(token);
     this.http.get("http://localhost:43053/api/home/Types").subscribe((data:any) => this.types = data);
     this.http.get("http://localhost:43053/api/home/Diagnose").subscribe((data:any) => this.diagnoses = data);
+    this.http.get("http://localhost:43053/api/home/Symptoms").subscribe((data:any) => this.symptoms = data);
     this.http.get("http://localhost:43053/api/home/testResult/" + this.idrecord).subscribe((data:any) => {this.test_result = data; console.log(this.test_result)});
     if(this.idrecord)
     {
       this.ssilka = true;
-    this.http.get("http://localhost:43053/api/home/GetRecord/" + this.idrecord).subscribe((data: any) => this.card = data);
+      this.http.get("http://localhost:43053/api/home/GetRecord/" + this.idrecord).subscribe((data: any) => {this.card = data; 
+      this.recordSymptom = this.card[0].symptom?.split(";");
+      console.log(this.recordSymptom); this.toppings = new FormControl(this.recordSymptom);});
     }
-
     else
     {
     this.disabled = false;
@@ -60,12 +68,25 @@ export class RecordComponent implements OnInit {
   }
   Record(form: NgForm)
   {
+    this.symptom = this.toppings.value;
+    for(let i=0; i<this.symptom.length; i++)
+    {
+      this.selectedSymptoms += this.symptom[i] + ";";
+    }
+    if(this.checksymptom)
+    {
+      this.selectedSymptoms = this.selectedSymptoms + form.value.symptom;
+      
+    }
+    else
+      this.selectedSymptoms = this.selectedSymptoms.substring(0, this.selectedSymptoms.length-1);
+    console.log(this.selectedSymptoms);
     const credentials = {
       'fioPatient': form.value.fio,
       'dateTime': form.value.datetime,
       'fioDoctor': form.value.fiodoctor,
       'positionDoctor': form.value.position,
-      'symptom': form.value.symptoms,
+      'symptom': this.selectedSymptoms,
       'type': form.value.type,
       'diagnose': form.value.diagnose,
       'inspection_description': form.value.inspection,
@@ -99,6 +120,13 @@ export class RecordComponent implements OnInit {
     console.log(this.urlresult);
 
   }
+  onChangeText(value: any){
+    this.urlresult = value;
+    
+
+
+  }
+
 
 
 }
