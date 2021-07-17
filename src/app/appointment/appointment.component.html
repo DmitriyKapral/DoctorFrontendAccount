@@ -3,37 +3,38 @@
 <fieldset>
 
 
-<mat-card class="demo-inline-calendar-card" >
-  <mat-calendar (selectedChange)="onChangePatient($event)" [selected]="date"></mat-calendar>
-</mat-card>
-<div *ngIf="!vision && isDate" class="alert alert-danger">Записей не найдено!</div>
-<div class="container" *ngIf="vision">
+  <mat-card class="calendar-card">
+    <mat-calendar (selectedChange)="onChangePatient($event)" [selected]="date"></mat-calendar>
+  </mat-card>
+  <div *ngIf="!vision && isDate" class="alert alert-danger">Записей не найдено!</div>
+  <div class="container" *ngIf="vision">
     <label class="label">Вывод пациентов:</label><br>
-    <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450" >
+    <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450">
       <tr style="color:white;background-color:rgb(100, 100, 100)">
-         <td class="table_th">ФИО</td>
-         <td class="table_th">№ полиса</td>
-         <td class="table_th">email</td>
-         <td class="table_th">Контактный телефон</td>
-         <td class="table_th">Возвраст</td>
-         <td class="table_th">Время</td>
+        <td class="table_th">ФИО</td>
+        <td class="table_th">№ полиса</td>
+        <td class="table_th">email</td>
+        <td class="table_th">Контактный телефон</td>
+        <td class="table_th">Возвраст</td>
+        <td class="table_th">Время</td>
       </tr>
     </table>
-<tr>
- <td>
-    <div style="width:1450px; height:255px; overflow:auto;">
-      <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450">
-       <tr *ngFor="let k of patients">
-           <td class="table_td"><a [routerLink]="['/patient/', k.id]" class="btn btn-sm btn-primary">{{k.surname}} {{k.name}} {{k.patronymic}}</a></td>
-           <td class="table_td">{{k.numberPolicy}}</td>
-           <td class="table_td">{{k.email}}</td>
-           <td class="table_td">{{k.numberPhone}}</td>
-           <td class="table_td">{{k.age}}</td>
-           <td class="table_td">{{k.time}}</td>
-       </tr>
-      </table>
-    </div>
- </td>
-</tr>
-</div>
+    <tr>
+      <td>
+        <div style="width:1450px; height:255px; overflow:auto;">
+          <table class="t1" cellspacing="0" cellpadding="1" border="1" width="1450">
+            <tr *ngFor="let k of patients">
+              <td class="table_td"><a [routerLink]="['/patient/', k.id]" class="btn btn-sm btn-primary">{{k.surname}}
+                  {{k.name}} {{k.patronymic}}</a></td>
+              <td class="table_td">{{k.numberPolicy}}</td>
+              <td class="table_td">{{k.email}}</td>
+              <td class="table_td">{{k.numberPhone}}</td>
+              <td class="table_td">{{k.age}}</td>
+              <td class="table_td">{{k.time}}</td>
+            </tr>
+          </table>
+        </div>
+      </td>
+    </tr>
+  </div>
 </fieldset>

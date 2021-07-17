@@ -20,24 +20,22 @@ export class AppointmentComponent implements OnInit {
 
 
   ngOnInit(): void {
-      this._adapter.setLocale('ru');
+    this._adapter.setLocale('ru');
   }
-  onChangePatient(value: any)
-  {
+  onChangePatient(value: any) {
     value = this.datepipe.transform(value, 'yyyy-MM-dd')
     console.log(value);
     this.date = value;
-    if(this.date)
-    {
-      this.http.get("http://localhost:43053/api/home/GetPatients/" + this.date).subscribe((data: any) => {this.patients = data; this.isDate=true; if(this.patients.length>0)
-      {
-        this.vision = true;
-      }
-      else
-      {
-        this.vision = false;
-      }});
-      
+    if (this.date) {
+      this.http.get("http://localhost:43053/api/home/GetPatients/" + this.date).subscribe((data: any) => {
+        this.patients = data; this.isDate = true; if (this.patients.length > 0) {
+          this.vision = true;
+        }
+        else {
+          this.vision = false;
+        }
+      });
+
     }
   }
 

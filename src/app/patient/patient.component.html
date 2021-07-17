@@ -4,58 +4,67 @@
         <img src="{{patient?.photourl}}" width="200" height="200">
         <button mat-raised-button class="search" type="submit">Поиск</button><br>
         <label class="label">Фамилия Имя Отчество</label><br>
-        <mat-form-field class="example-full-width" appearance="outline">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>ФИО</mat-label>
-        <input type="fio" matInput [ngModel]="patient?.fullName" id="fio" name="fio" ngModel class="form-control" placeholder="fio" required>
-    </mat-form-field>
+            <input type="fio" matInput [ngModel]="patient?.fullName" id="fio" name="fio" ngModel class="form-control"
+                placeholder="Пример: Иванов Иван Иванович" required>
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Номер полиса</label><br>
-        <mat-form-field class="example-full-width" appearance="outline">
+        <mat-form-field class="full-width" appearance="outline">
             <mat-label>Номер полиса</mat-label>
-        <input type="numberpolicy" matInput [ngModel]="patient?.numberpolicy" id="numberpolicy" name="numberpolicy" ngModel class="form-control" placeholder="numberpolicy" required>
-    </mat-form-field>
+            <input type="numberpolicy" matInput [ngModel]="patient?.numberpolicy" id="numberpolicy" name="numberpolicy"
+                ngModel class="form-control" placeholder="1234567891234567" required>
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Пол: </label>
-        <mat-form-field class="example-full-widthG" appearance="legacy">
-        <input type="gender" matInput [ngModel]="patient?.gender" id="gender" name="gender" ngModel class="form-control" readonly>
-    </mat-form-field>
+        <mat-form-field class="full-widthGender" appearance="legacy">
+            <input type="gender" matInput [ngModel]="patient?.gender" id="gender" name="gender" ngModel
+                class="form-control" readonly>
+        </mat-form-field>
     </div>
     <div class="blockAge">
         <label class="label">Возвраст: </label>
-        <mat-form-field class="example-full-widthE" appearance="legacy">
+        <mat-form-field class="full-widthEdge" appearance="legacy">
             <mat-label></mat-label>
-        <input type="age" matInput [ngModel]="patient?.age" id="age" name="age" ngModel class="form-control" placeholder="age" readonly>
-    </mat-form-field>
+            <input type="age" matInput [ngModel]="patient?.age" id="age" name="age" ngModel class="form-control"
+                placeholder="age" readonly>
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Серия и номер паспорта</label><br>
-        <mat-form-field class="example-full-widthP" appearance="legacy">
-        <input type="numberpassport" matInput [ngModel]="patient?.numberpassport" id="numberpassport" name="numberpassport" ngModel class="form-control" readonly>
-    </mat-form-field>
+        <mat-form-field class="full-widthPassport" appearance="legacy">
+            <input type="numberpassport" matInput [ngModel]="patient?.numberpassport" id="numberpassport"
+                name="numberpassport" ngModel class="form-control" readonly>
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Адрес прописки</label><br>
-        <mat-form-field class="example-full-width" appearance="legacy">
-        <input type="residanceaddress" matInput [ngModel]="patient?.residenceaddress" id="residanceaddress" name="residanceaddress" ngModel class="form-control" readonly>
-    </mat-form-field>
+        <mat-form-field class="full-width" appearance="legacy">
+            <input type="residanceaddress" matInput [ngModel]="patient?.residenceaddress" id="residanceaddress"
+                name="residanceaddress" ngModel class="form-control" readonly>
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Адрес проживания</label><br>
-        <mat-form-field class="example-full-width" appearance="legacy">
-        <input type="placeofresidence" matInput [ngModel]="patient?.placeofresidence" id="placeofresidence" name="placeofresidence" ngModel class="form-control" readonly>
-    </mat-form-field>
+        <mat-form-field class="full-width" appearance="legacy">
+            <input type="placeofresidence" matInput [ngModel]="patient?.placeofresidence" id="placeofresidence"
+                name="placeofresidence" ngModel class="form-control" readonly>
+        </mat-form-field>
     </div>
     <div class="block">
         <label class="label">Телефон</label>
         <label class="labelpost">Почта:</label><br>
-        <mat-form-field class="example-full-widthPT" appearance="legacy">
-        <input type="phone" matInput [ngModel]="patient?.phone" id="phone" name="phone" ngModel class="form-control"  readonly>
+        <mat-form-field class="full-widthPhone" appearance="legacy">
+            <input type="phone" matInput [ngModel]="patient?.phone" id="phone" name="phone" ngModel class="form-control"
+                readonly>
         </mat-form-field>
-        <mat-form-field class="example-full-widthPTE" appearance="legacy">
-        <input type="email" matInput [ngModel]="patient?.email" (ngModelChange)="patient.email = $event" id="email" name="email" ngModel class="form-control"  readonly>
-    </mat-form-field>
+        <mat-form-field class="full-widthEmail" appearance="legacy">
+            <input type="email" matInput [ngModel]="patient?.email" (ngModelChange)="patient.email = $event" id="email"
+                name="email" ngModel class="form-control" readonly>
+        </mat-form-field>
     </div>
 </form>
 
@@ -63,31 +72,33 @@
 
 <div class="container">
     <input type="text" class="searchString" name="searchString" placeholder="Поиск..." [(ngModel)]="searchString">
-             <table class="t1" cellspacing="0" cellpadding="1" border="1" width="900" >
-               <tr style="color:white;background-color:grey">
-                  <td class="table_th">Индетификатор<br>приёма</td>
-                  <td class="table_th">Название<br>заболевания</td>
-                  <td class="table_th">Врач</td>
-                  <td class="table_th">Дата регистрации</td>
-                  <td class="table_th">Тип</td>
-                  <td class="table_th"></td>
-               </tr>
-             </table>
-        <tr>
-          <td>
-             <div style="width:920px; height:500px; overflow:auto;">
-               <table class="t1" cellspacing="0" cellpadding="1" border="1" width="900">
-                <tr *ngFor="let k of cards | filterAll: searchString">
-                    <td class="table_td">{{k.id}}</td>
-                    <td class="table_td">{{k.diagnose}}</td>
-                    <td class="table_td">{{k.nameDoctor}} {{k.surnamedoctor}} {{k.patronymicdoctor}}</td>
-                    <td class="table_td">{{k.date}}</td>
-                    <td class="table_td">{{k.type}}</td>
-                    <td class="table_td"><a [routerLink]="['record', k.id]" class="btn btn-sm btn-primary">Просмотреть</a></td>
-                </tr>
-               </table>
-             </div>
-          </td>
+    <table class="t1" cellspacing="0" cellpadding="1" border="1" width="900">
+        <tr style="color:white;background-color:grey">
+            <td class="table_th">Индетификатор<br>приёма</td>
+            <td class="table_th">Название<br>заболевания</td>
+            <td class="table_th">Врач</td>
+            <td class="table_th">Дата регистрации</td>
+            <td class="table_th">Тип</td>
+            <td class="table_th"></td>
         </tr>
-    <button mat-raised-button color="primary" class="button" [disabled]="!enable" [routerLink]="['record-add']">Добавить</button>
+    </table>
+    <tr>
+        <td>
+            <div style="width:920px; height:500px; overflow:auto;">
+                <table class="t1" cellspacing="0" cellpadding="1" border="1" width="900">
+                    <tr *ngFor="let k of cards | filterAll: searchString">
+                        <td class="table_td">{{k.id}}</td>
+                        <td class="table_td">{{k.diagnose}}</td>
+                        <td class="table_td">{{k.nameDoctor}} {{k.surnamedoctor}} {{k.patronymicdoctor}}</td>
+                        <td class="table_td">{{k.date}}</td>
+                        <td class="table_td">{{k.type}}</td>
+                        <td class="table_td"><a [routerLink]="['record', k.id]"
+                                class="btn btn-sm btn-primary">Просмотреть</a></td>
+                    </tr>
+                </table>
+            </div>
+        </td>
+    </tr>
+    <button mat-raised-button color="primary" class="button" [disabled]="!enable"
+        [routerLink]="['record-add']">Добавить</button>
 </div>

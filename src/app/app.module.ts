@@ -4,26 +4,19 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { JwtHelperService, JwtModule } from '@auth0/angular-jwt';
 
-import {MatIconModule} from '@angular/material/icon'
-
-import { DataService } from './data.service';
+import { MatIconModule } from '@angular/material/icon'
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
 import { PatientComponent } from './patient/patient.component';
 import { NavComponent } from './nav/nav.component';
 import { RecordComponent } from './record/record.component';
 import { AppointmentComponent } from './appointment/appointment.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {ReactiveFormsModule} from '@angular/forms';
-import {MatNativeDateModule} from '@angular/material/core';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
-
-import { enableProdMode } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatNativeDateModule } from '@angular/material/core';
 import { DemoMaterialModule } from './material-module';
 import { DatePipe } from '@angular/common';
 import { FilterPipe } from './record/filterpipe';
@@ -31,8 +24,7 @@ import { FilterPipe } from './record/filterpipe';
 
 
 
-export function tokenGetter()
-{
+export function tokenGetter() {
   return localStorage.getItem("jwt");
 }
 
@@ -40,7 +32,6 @@ export function tokenGetter()
   declarations: [
     AppComponent,
     LoginComponent,
-    HomeComponent,
     PatientComponent,
     NavComponent,
     RecordComponent,
@@ -65,8 +56,8 @@ export function tokenGetter()
     ReactiveFormsModule,
     MatIconModule
   ],
-  
-  providers: [DataService, DatePipe],
+
+  providers: [DatePipe],
   bootstrap: [AppComponent, AppointmentComponent],
   entryComponents: [AppointmentComponent]
 })
