@@ -1,67 +1,65 @@
 html,
-.form-record{
-    left: 370px;
-    position: absolute;
-    font-size: 14pt;
-    top: 13px;
-    width: 1500px;
+.form-record {
+  left: 370px;
+  position: absolute;
+  font-size: 14pt;
+  top: 13px;
+  width: 1500px;
 }
-.block{
-    margin: 1px;
-    left: 20px;
-    position: relative;
+.block {
+  margin: 1px;
+  left: 20px;
+  position: relative;
 }
-.block input{
-    width: 300px;
+.block input {
+  width: 300px;
 }
-.newblock{
-    position: absolute;
-    left: 700px;
-    top: 13px;
+.newblock {
+  position: absolute;
+  left: 700px;
+  top: 13px;
 }
-.textarea{
-    resize: none;
-    height: 170px;
+.textarea {
+  resize: none;
+  height: 170px;
 }
-.disabled{
-    height: 920px;
+.disabled {
+  height: 920px;
 }
-mat-form-field{
-    
-    font-size: 14px;
+mat-form-field {
+  font-size: 14px;
 }
-.block-check{
-    left: 25px;
-    position: relative;
+.block-check {
+  left: 25px;
+  position: relative;
 }
-.blockCheck{
-    left: 25px;
-    position: relative;
+.block-check-two {
+  left: 25px;
+  position: relative;
 }
-button{
-    position: relative;
-    left: 500px;
-    top: 40px;
+button {
+  position: relative;
+  left: 500px;
+  top: 40px;
 }
-select{
-    width: 300px;
+select {
+  width: 300px;
 }
 
-.example-full-width {
-    width: 300px;
-    position: relative;
-    left: 0px;
-    top: 0%;
-  }
-  .example-full-widthnew {
-    width: 600px;
-    position: relative;
-    left: 0px;
-    top: 0%;
-  }
-  .example-margin {
-    margin: 0 12px;
-    left: -15px;
-    position: relative;
-  }
-  
+.full-width {
+  width: 300px;
+  position: relative;
+  left: 0px;
+  top: 0%;
+}
+.full-width-two {
+  width: 600px;
+  position: relative;
+  left: 0px;
+  top: 0%;
+}
+.margin {
+  margin: 0 12px;
+  left: -15px;
+  position: relative;
+}

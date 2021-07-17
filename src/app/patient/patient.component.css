@@ -1,112 +1,99 @@
 html,
-.form-patient{
-    left: 20%;
-    position: absolute;
-    top: 80px;
-    font-size: 12pt;
+.form-patient {
+  left: 20%;
+  position: absolute;
+  top: 80px;
+  font-size: 12pt;
 }
-.block input[type="gender"]
-{
-    width: 20px;
+.block input[type="gender"] {
+  width: 20px;
 }
-.block input[type="age"]
-{
-    width: 20px;
+.block input[type="age"] {
+  width: 20px;
 }
-.block input[type="placeofresidence"]
-{
-    width: 300px;
+.block input[type="placeofresidence"] {
+  width: 300px;
 }
-.block input[type="residanceaddress"]
-{
-    width: 300px;
+.block input[type="residanceaddress"] {
+  width: 300px;
 }
 
 .block {
-    width: 200%;
+  width: 200%;
 }
 .labelpost {
-    left: 110px;
-    position: relative;
+  left: 110px;
+  position: relative;
 }
 
-
-
-.container{
-    position: absolute;
-    top: 200px;
-    left: 40%;
-    font-family:'Comic Sans MS', 'Trebuchet MS', Arial, Helvetica;
-
+.container {
+  position: absolute;
+  top: 200px;
+  left: 40%;
+  font-family: "Comic Sans MS", "Trebuchet MS", Arial, Helvetica;
 }
 
-.t1{
-    table-layout: fixed;
+.t1 {
+  table-layout: fixed;
 }
-.button{
-    left: 800px;
-    position: absolute;
-}
-
-img{
-    background-image: url("no_avatar.png");
-    background-size: contain;
-    background-position-x: center;
-}
-.search{
-    position: absolute;
-    top: 170px;
-    left: 250px;
-}
-.searchString{
-    position: absolute;
-    top: -40px;
-    left: 670px;
-    border-radius: 10px;
-    font-size: 17px;
-}
-.searchString:focus{
-    outline:none;
-    border-color: blue;
+.button {
+  left: 800px;
+  position: absolute;
 }
 
-.example-full-width {
-    width: 300px;
-    position: relative;
-    left: 0px;
-    top: 0%;
-  }
-  .example-full-widthG
-  {
-      width: 16px;
-      position: relative;
-  }
-  .example-full-widthP
-  {
-      width: 120px;
-      position: relative;
-  }
-  .example-full-widthPT
-  {
-      width: 150px;
-      position: relative;
-  }
-  .example-full-widthPTE
-  {
-      left: 15px;
-      position: relative;
-      width: 200px;
-  }
-  .example-full-widthE
-  {
-      width: 40px;
-      position: relative;
-      text-align: center;
-  }
+img {
+  background-image: url("no_avatar.png");
+  background-size: contain;
+  background-position-x: center;
+}
+.search {
+  position: absolute;
+  top: 170px;
+  left: 250px;
+}
+.searchString {
+  position: absolute;
+  top: -40px;
+  left: 670px;
+  border-radius: 10px;
+  font-size: 17px;
+}
+.searchString:focus {
+  outline: none;
+  border-color: blue;
+}
 
+.full-width {
+  width: 300px;
+  position: relative;
+  left: 0px;
+  top: 0%;
+}
+.full-widthGender {
+  width: 16px;
+  position: relative;
+}
+.full-widthPassport {
+  width: 120px;
+  position: relative;
+}
+.full-widthPhone {
+  width: 150px;
+  position: relative;
+}
+.full-widthEmail {
+  left: 15px;
+  position: relative;
+  width: 200px;
+}
+.full-widthEdge {
+  width: 40px;
+  position: relative;
+  text-align: center;
+}
 
-  .blockAge{
-      position: absolute;
-      left: 150px;
-      top: 418px;
-  }
+.blockAge {
+  position: absolute;
+  left: 150px;
+  top: 418px;
+}

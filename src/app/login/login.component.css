@@ -1,28 +1,27 @@
 html,
-
-.form-sugnin{
-    width: 100%;
+.form-sugnin {
+  width: 100%;
   max-width: 330px;
   padding: 270px;
   margin: auto;
 }
 .container-fluid {
-    width: 330px;	height: 300px; /* Размеры */
-    outline: 2px solid #000; /* Чёрная рамка */
-    border: 3px solid #fff; /* Белая рамка */
-    border-radius: 10px; /* Радиус скругления */
-   }
+  width: 330px;
+  height: 300px; /* Размеры */
+  outline: 2px solid #000; /* Чёрная рамка */
+  border: 3px solid #fff; /* Белая рамка */
+  border-radius: 10px; /* Радиус скругления */
+}
+.alert {
+  color: red;
+}
+.login {
+  position: relative;
+  left: 13px;
+  top: 0%;
+}
 
-
-  .alert{
-      color: red;
-  }
-  .login {
-    position: relative;
-    left: 13px;
-    top: 0%;
-  }
-  label{
-    left: -10px;
-    position: relative;
-  }
+label {
+  left: -10px;
+  position: relative;
+}
